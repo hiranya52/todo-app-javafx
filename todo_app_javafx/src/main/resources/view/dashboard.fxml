@@ -43,36 +43,36 @@
             <String fx:value="color-gradient" />
          </styleClass>
       </AnchorPane>
-      <JFXTextField focusColor="#eb82aa" layoutX="103.0" layoutY="205.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="71.0" layoutY="209.0" mnemonicParsing="false" />
-      <JFXTextField focusColor="#eb82aa" layoutX="104.0" layoutY="256.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="72.0" layoutY="260.0" mnemonicParsing="false" />
-      <JFXTextField focusColor="#eb82aa" layoutX="104.0" layoutY="308.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="72.0" layoutY="312.0" mnemonicParsing="false" />
+      <JFXTextField fx:id="txtField_1" focusColor="#eb82aa" layoutX="103.0" layoutY="205.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="71.0" layoutY="209.0" mnemonicParsing="false" onAction="#chk_1" />
+      <JFXTextField fx:id="txtField_2" focusColor="#eb82aa" layoutX="104.0" layoutY="256.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="72.0" layoutY="260.0" mnemonicParsing="false" onAction="#chk_2" />
+      <JFXTextField fx:id="txtField_3" focusColor="#eb82aa" layoutX="104.0" layoutY="308.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="72.0" layoutY="312.0" mnemonicParsing="false" onAction="#chk_3" />
       <Label layoutX="473.0" layoutY="90.0" text="Completed Task" textFill="#e24e6d">
          <font>
             <Font name="System Bold Italic" size="28.0" />
          </font>
       </Label>
-      <TableView layoutX="383.0" layoutY="140.0" prefHeight="325.0" prefWidth="374.0" style="-fx-border-color: #e24e6d;">
+      <TableView fx:id="tblCompletedTask" layoutX="383.0" layoutY="140.0" prefHeight="325.0" prefWidth="374.0" style="-fx-border-color: #e24e6d;">
         <columns>
-          <TableColumn prefWidth="39.0" text="Id" />
-          <TableColumn prefWidth="111.0" text="Title" />
-            <TableColumn prefWidth="126.0" text="Description" />
-            <TableColumn prefWidth="96.0" text="Date" />
+          <TableColumn fx:id="colId" prefWidth="39.0" text="Id" />
+          <TableColumn fx:id="colTitle" prefWidth="111.0" text="Title" />
+            <TableColumn fx:id="colDescription" prefWidth="126.0" text="Description" />
+            <TableColumn fx:id="colDate" prefWidth="96.0" text="Date" />
         </columns>
       </TableView>
-      <JFXButton layoutX="517.0" layoutY="480.0" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #e24e6d;" text="Reload" textFill="WHITE">
+      <JFXButton layoutX="517.0" layoutY="480.0" onAction="#btnReloadOnAction" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #e24e6d;" text="Reload" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
       <AnchorPane layoutX="54.0" layoutY="362.0" prefHeight="150.0" prefWidth="280.0" style="-fx-background-color: #F8E0E6;" styleClass="anchor-pane-rounded" stylesheets="@../style.css">
          <children>
-            <DatePicker layoutX="12.0" layoutY="21.0" prefHeight="26.0" prefWidth="106.0" />
-            <JFXTextField focusColor="#eb82aa" layoutX="132.0" layoutY="21.0" prefHeight="26.0" prefWidth="136.0" promptText="   Title" />
-            <JFXTextField focusColor="#eb82aa" layoutX="15.0" layoutY="67.0" prefHeight="26.0" prefWidth="255.0" promptText="    Description" />
-            <JFXButton layoutX="85.0" layoutY="110.0" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #e24e6d;" text="Add Task" textFill="WHITE">
+            <DatePicker fx:id="txtDate" layoutX="12.0" layoutY="21.0" prefHeight="26.0" prefWidth="106.0" />
+            <JFXTextField fx:id="txtTitle" focusColor="#eb82aa" layoutX="132.0" layoutY="21.0" prefHeight="26.0" prefWidth="136.0" promptText="   Title" />
+            <JFXTextField fx:id="txtDescription" focusColor="#eb82aa" layoutX="15.0" layoutY="67.0" prefHeight="26.0" prefWidth="255.0" promptText="    Description" />
+            <JFXButton layoutX="85.0" layoutY="110.0" onAction="#btnAddTaskOnAction" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #e24e6d;" text="Add Task" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
