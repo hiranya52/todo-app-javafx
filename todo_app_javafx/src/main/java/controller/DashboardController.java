@@ -6,8 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import model.dto.TaskDTO;
+import service.TaskService;
 
 public class DashboardController {
+
+    TaskService taskService = new TaskService();
 
     @FXML
     private TableColumn<?, ?> colDate;
