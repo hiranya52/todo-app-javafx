@@ -49,6 +49,15 @@ public class DashboardController {
     @FXML
     void btnAddTaskOnAction(ActionEvent event) {
 
+        String date = txtDate.getValue().toString();
+        String title = txtTitle.getText();
+        String description = txtDescription.getText();
+
+        TaskDTO taskDTO = new TaskDTO(date,title,description);
+
+        taskService.addTask(taskDTO);
+
+
     }
 
     @FXML

@@ -1,19 +1,18 @@
 package model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.*;
+import com.sun.javafx.beans.IDProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Getter
+
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Entity
 public class Task {
 
-    @Id
-    private int id;
     private String date;
     private String title;
     private String Description;
