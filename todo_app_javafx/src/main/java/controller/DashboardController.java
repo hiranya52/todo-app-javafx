@@ -9,6 +9,8 @@ import javafx.scene.control.TableView;
 import model.dto.TaskDTO;
 import service.TaskService;
 
+import java.util.List;
+
 public class DashboardController {
 
     TaskService taskService = new TaskService();
@@ -56,6 +58,11 @@ public class DashboardController {
         TaskDTO taskDTO = new TaskDTO(date,title,description);
 
         taskService.addTask(taskDTO);
+
+
+        List<TaskDTO> tasks =  taskService.loadTasks();
+
+        System.out.println(tasks);
 
 
     }

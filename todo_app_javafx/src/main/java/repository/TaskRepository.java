@@ -5,7 +5,9 @@ import model.entity.Task;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class TaskRepository {
@@ -24,4 +26,17 @@ public class TaskRepository {
         preparedStatement.executeUpdate();
 
     }
+
+    public ResultSet loadTasks() throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "Select * From Tasks";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        return preparedStatement.executeQuery();
+
+
+    }
+
 }
