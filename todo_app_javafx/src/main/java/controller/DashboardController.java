@@ -3,10 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import model.dto.TaskDTO;
 import service.TaskService;
 
@@ -15,6 +12,24 @@ import java.util.List;
 public class DashboardController {
 
     TaskService taskService = new TaskService();
+
+    @FXML
+    private CheckBox chk_1;
+
+    @FXML
+    private CheckBox chk_2;
+
+    @FXML
+    private CheckBox chk_3;
+
+    @FXML
+    private CheckBox chk_4;
+
+    @FXML
+    private CheckBox chk_5;
+
+    @FXML
+    private CheckBox chk_6;
 
     @FXML
     private TableColumn<?, ?> colDate;

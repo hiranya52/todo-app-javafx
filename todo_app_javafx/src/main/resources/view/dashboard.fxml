@@ -44,9 +44,9 @@
          </styleClass>
       </AnchorPane>
       <JFXTextField fx:id="txtField_1" focusColor="#eb82aa" layoutX="100.0" layoutY="148.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="68.0" layoutY="155.0" mnemonicParsing="false" onAction="#chk_1" />
+      <CheckBox fx:id="chk_1" layoutX="68.0" layoutY="155.0" mnemonicParsing="false" onAction="#chk_1" />
       <JFXTextField fx:id="txtField_2" focusColor="#eb82aa" layoutX="101.0" layoutY="186.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="69.0" layoutY="190.0" mnemonicParsing="false" onAction="#chk_2" />
+      <CheckBox fx:id="chk_2" layoutX="69.0" layoutY="190.0" mnemonicParsing="false" onAction="#chk_2" />
       <Label layoutX="473.0" layoutY="90.0" text="Completed Task" textFill="#e24e6d">
          <font>
             <Font name="System Bold Italic" size="28.0" />
@@ -78,12 +78,12 @@
          </children>
       </AnchorPane>
       <JFXTextField fx:id="txtField_3" focusColor="#eb82aa" layoutX="101.0" layoutY="223.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="69.0" layoutY="230.0" mnemonicParsing="false" onAction="#chk_3" />
+      <CheckBox fx:id="chk_3" layoutX="69.0" layoutY="230.0" mnemonicParsing="false" onAction="#chk_3" />
       <JFXTextField fx:id="txtField_4" focusColor="#eb82aa" layoutX="102.0" layoutY="262.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="70.0" layoutY="266.0" mnemonicParsing="false" onAction="#chk_4" />
+      <CheckBox fx:id="chk_4" layoutX="70.0" layoutY="266.0" mnemonicParsing="false" onAction="#chk_4" />
       <JFXTextField fx:id="txtField_5" focusColor="#eb82aa" layoutX="102.0" layoutY="301.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="70.0" layoutY="306.0" mnemonicParsing="false" onAction="#chk_5" />
+      <CheckBox fx:id="chk_5" layoutX="70.0" layoutY="306.0" mnemonicParsing="false" onAction="#chk_5" />
       <JFXTextField fx:id="txtField_6" focusColor="#eb82aa" layoutX="103.0" layoutY="340.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="71.0" layoutY="344.0" mnemonicParsing="false" onAction="#chk_6" />
+      <CheckBox fx:id="chk_6" layoutX="71.0" layoutY="344.0" mnemonicParsing="false" onAction="#chk_6" />
    </children>
 </AnchorPane>
