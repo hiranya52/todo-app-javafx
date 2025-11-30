@@ -20,19 +20,19 @@
             <Font name="Yuanti SC Regular" size="32.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="61.0" layoutY="83.0" prefHeight="91.0" prefWidth="273.0" stylesheets="@../style.css">
+      <AnchorPane layoutX="81.0" layoutY="69.0" prefHeight="6.0" prefWidth="225.0" stylesheets="@../style.css">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="172.0" layoutY="16.0">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="154.0" layoutY="4.0">
                <image>
                   <Image url="@../img/profile.png" />
                </image>
             </ImageView>
-            <Label layoutX="36.0" layoutY="27.0" text="Hiranya Mendis">
+            <Label layoutX="25.0" layoutY="7.0" text="Hiranya Mendis">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="43.0" layoutY="52.0" text="hiranya@gmail.com">
+            <Label layoutX="32.0" layoutY="32.0" text="hiranya@gmail.com">
                <font>
                   <Font size="12.0" />
                </font>
@@ -43,12 +43,10 @@
             <String fx:value="color-gradient" />
          </styleClass>
       </AnchorPane>
-      <JFXTextField fx:id="txtField_1" focusColor="#eb82aa" layoutX="103.0" layoutY="205.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="71.0" layoutY="209.0" mnemonicParsing="false" onAction="#chk_1" />
-      <JFXTextField fx:id="txtField_2" focusColor="#eb82aa" layoutX="104.0" layoutY="256.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="72.0" layoutY="260.0" mnemonicParsing="false" onAction="#chk_2" />
-      <JFXTextField fx:id="txtField_3" focusColor="#eb82aa" layoutX="104.0" layoutY="308.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
-      <CheckBox layoutX="72.0" layoutY="312.0" mnemonicParsing="false" onAction="#chk_3" />
+      <JFXTextField fx:id="txtField_1" focusColor="#eb82aa" layoutX="100.0" layoutY="148.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="68.0" layoutY="155.0" mnemonicParsing="false" onAction="#chk_1" />
+      <JFXTextField fx:id="txtField_2" focusColor="#eb82aa" layoutX="101.0" layoutY="186.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="69.0" layoutY="190.0" mnemonicParsing="false" onAction="#chk_2" />
       <Label layoutX="473.0" layoutY="90.0" text="Completed Task" textFill="#e24e6d">
          <font>
             <Font name="System Bold Italic" size="28.0" />
@@ -67,17 +65,25 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <AnchorPane layoutX="54.0" layoutY="362.0" prefHeight="150.0" prefWidth="280.0" style="-fx-background-color: #F8E0E6;" styleClass="anchor-pane-rounded" stylesheets="@../style.css">
+      <AnchorPane layoutX="54.0" layoutY="390.0" prefHeight="134.0" prefWidth="280.0" style="-fx-background-color: #F8E0E6;" styleClass="anchor-pane-rounded" stylesheets="@../style.css">
          <children>
-            <DatePicker fx:id="txtDate" layoutX="12.0" layoutY="21.0" prefHeight="26.0" prefWidth="106.0" />
-            <JFXTextField fx:id="txtTitle" focusColor="#eb82aa" layoutX="132.0" layoutY="21.0" prefHeight="26.0" prefWidth="136.0" promptText="   Title" />
-            <JFXTextField fx:id="txtDescription" focusColor="#eb82aa" layoutX="15.0" layoutY="67.0" prefHeight="26.0" prefWidth="255.0" promptText="    Description" />
-            <JFXButton layoutX="85.0" layoutY="110.0" onAction="#btnAddTaskOnAction" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #e24e6d;" text="Add Task" textFill="WHITE">
+            <DatePicker fx:id="txtDate" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="106.0" />
+            <JFXTextField fx:id="txtTitle" focusColor="#eb82aa" layoutX="132.0" layoutY="17.0" prefHeight="26.0" prefWidth="136.0" promptText="   Title" />
+            <JFXTextField fx:id="txtDescription" focusColor="#eb82aa" layoutX="15.0" layoutY="56.0" prefHeight="26.0" prefWidth="255.0" promptText="    Description" />
+            <JFXButton layoutX="85.0" layoutY="94.0" onAction="#btnAddTaskOnAction" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #e24e6d;" text="Add Task" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
+      <JFXTextField fx:id="txtField_3" focusColor="#eb82aa" layoutX="101.0" layoutY="223.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="69.0" layoutY="230.0" mnemonicParsing="false" onAction="#chk_3" />
+      <JFXTextField fx:id="txtField_4" focusColor="#eb82aa" layoutX="102.0" layoutY="262.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="70.0" layoutY="266.0" mnemonicParsing="false" onAction="#chk_4" />
+      <JFXTextField fx:id="txtField_5" focusColor="#eb82aa" layoutX="102.0" layoutY="301.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="70.0" layoutY="306.0" mnemonicParsing="false" onAction="#chk_5" />
+      <JFXTextField fx:id="txtField_6" focusColor="#eb82aa" layoutX="103.0" layoutY="340.0" prefHeight="26.0" prefWidth="219.0" promptText="   Add Task" />
+      <CheckBox layoutX="71.0" layoutY="344.0" mnemonicParsing="false" onAction="#chk_6" />
    </children>
 </AnchorPane>

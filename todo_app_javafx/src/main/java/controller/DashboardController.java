@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import model.dto.TaskDTO;
 import service.TaskService;
 
@@ -46,11 +47,19 @@ public class DashboardController {
     private JFXTextField txtField_3;
 
     @FXML
+    private JFXTextField txtField_4;
+
+    @FXML
+    private JFXTextField txtField_5;
+
+    @FXML
+    private JFXTextField txtField_6;
+
+    @FXML
     private JFXTextField txtTitle;
 
     @FXML
     void btnAddTaskOnAction(ActionEvent event) {
-
         String date = txtDate.getValue().toString();
         String title = txtTitle.getText();
         String description = txtDescription.getText();
@@ -62,9 +71,13 @@ public class DashboardController {
 
         List<TaskDTO> tasks =  taskService.loadTasks();
 
-        System.out.println(tasks);
+        TextField[] fields = { txtField_1,txtField_2,txtField_3,txtField_4,txtField_5,txtField_6 };
 
-
+        for (int i=0; i<6; i++){
+            if(tasks.get(i) != null){
+                fields[i].setText(tasks.get(i).getTitle());
+            }
+        }
     }
 
     @FXML
@@ -84,6 +97,21 @@ public class DashboardController {
 
     @FXML
     void chk_3(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chk_4(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chk_5(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chk_6(ActionEvent event) {
 
     }
 
