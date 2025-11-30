@@ -1,6 +1,8 @@
 package repository;
 
+import com.mysql.cj.protocol.Resultset;
 import db.DBConnection;
+import model.dto.TaskDTO;
 import model.entity.Task;
 
 import java.sql.Connection;
@@ -36,6 +38,18 @@ public class TaskRepository {
 
         return preparedStatement.executeQuery();
 
+
+    }
+
+    public ResultSet taskCompleted(String title) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "SELECT id, date, title, description FROM tasks WHERE title = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, title);
+
+        return preparedStatement.executeQuery();
 
     }
 

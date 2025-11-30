@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.dto.TaskDTO;
+import model.entity.CompletedTask;
 import service.TaskService;
 
 import java.util.List;
@@ -102,7 +103,13 @@ public class DashboardController {
 
     @FXML
     void chk_1(ActionEvent event) {
+        if (chk_1.isSelected()){
 
+            String title = txtField_1.getText();
+
+            CompletedTask task = taskService.taskCompleted(title);
+
+        }
     }
 
     @FXML

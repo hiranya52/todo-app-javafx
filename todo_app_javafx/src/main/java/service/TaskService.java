@@ -1,6 +1,8 @@
 package service;
 
+import com.mysql.cj.protocol.Resultset;
 import model.dto.TaskDTO;
+import model.entity.CompletedTask;
 import model.entity.Task;
 import repository.TaskRepository;
 
@@ -55,6 +57,28 @@ public class TaskService {
         }
 
          return taskDTOS;
+
+    }
+
+
+    public CompletedTask taskCompleted(String title) {
+
+        try {
+            ResultSet resultSet = (ResultSet) taskRepository.taskCompleted(title);
+
+            if (resultSet.next()) {
+                return new CompletedTask(
+                        resultSet.getString("date"),
+                        resultSet.getString("title"),
+                        resultSet.getString("description")
+                );
+            }
+
+            return null;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
