@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.dto.TaskDTO;
 import model.entity.CompletedTask;
+import service.CompletedTaskService;
 import service.TaskService;
 
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.List;
 public class DashboardController {
 
     TaskService taskService = new TaskService();
+
+    CompletedTaskService completedTaskService = new CompletedTaskService();
 
     @FXML
     private CheckBox chk_1;
@@ -74,6 +77,27 @@ public class DashboardController {
     @FXML
     private JFXTextField txtTitle;
 
+    private void loadTasks(){
+        List<TaskDTO> tasks =  taskService.loadTasks();
+
+        TextField[] fields = { txtField_1,txtField_2,txtField_3,txtField_4,txtField_5,txtField_6 };
+
+        for (int i=0; i<6; i++){
+            txtField_1.clear();
+            txtField_2.clear();
+            txtField_3.clear();
+            txtField_4.clear();
+            txtField_5.clear();
+            txtField_6.clear();
+        }
+
+        for (int i=0; i<6; i++){
+            if(tasks.get(i) != null){
+                fields[i].setText(tasks.get(i).getTitle());
+            }
+        }
+    }
+
     @FXML
     void btnAddTaskOnAction(ActionEvent event) {
         String date = txtDate.getValue().toString();
@@ -84,16 +108,8 @@ public class DashboardController {
 
         taskService.addTask(taskDTO);
 
+        loadTasks();
 
-        List<TaskDTO> tasks =  taskService.loadTasks();
-
-        TextField[] fields = { txtField_1,txtField_2,txtField_3,txtField_4,txtField_5,txtField_6 };
-
-        for (int i=0; i<6; i++){
-            if(tasks.get(i) != null){
-                fields[i].setText(tasks.get(i).getTitle());
-            }
-        }
     }
 
     @FXML
@@ -105,16 +121,26 @@ public class DashboardController {
     void chk_1(ActionEvent event) {
         if (chk_1.isSelected()){
 
-            String title = txtField_1.getText();
+            CompletedTask task = taskService.taskCompleted(txtField_1.getText());
 
-            CompletedTask task = taskService.taskCompleted(title);
+            completedTaskService.addCompletedTask(task);
+
+            loadTasks();
 
         }
     }
 
     @FXML
     void chk_2(ActionEvent event) {
+        if (chk_2.isSelected()){
 
+            CompletedTask task = taskService.taskCompleted(txtField_2.getText());
+
+            completedTaskService.addCompletedTask(task);
+
+            loadTasks();
+
+        }
     }
 
     @FXML

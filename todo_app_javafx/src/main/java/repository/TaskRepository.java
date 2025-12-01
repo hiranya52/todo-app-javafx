@@ -29,6 +29,10 @@ public class TaskRepository {
 
     }
 
+    public void deleteCompletedTask(){
+
+    }
+
     public ResultSet loadTasks() throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
@@ -37,7 +41,6 @@ public class TaskRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
         return preparedStatement.executeQuery();
-
 
     }
 
