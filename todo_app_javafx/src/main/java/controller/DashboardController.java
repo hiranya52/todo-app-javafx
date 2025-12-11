@@ -1,13 +1,15 @@
 package controller;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.dto.CompletedTaskDTO;
 import model.dto.TaskDTO;
-import model.entity.CompletedTask;
 import service.CompletedTaskService;
 import service.TaskService;
 
@@ -20,6 +22,8 @@ public class DashboardController implements Initializable {
     TaskService taskService = new TaskService();
 
     CompletedTaskService completedTaskService = new CompletedTaskService();
+
+    ObservableList<CompletedTaskDTO> completedTaskDTOS = FXCollections.observableArrayList();
 
     @FXML
     private CheckBox chk_1;
@@ -46,14 +50,10 @@ public class DashboardController implements Initializable {
     private TableColumn<?, ?> colDescription;
 
     @FXML
-    private TableColumn<?, ?> colId;
-
-    @FXML
     private TableColumn<?, ?> colTitle;
 
     @FXML
-    private TableView<?> tblCompletedTask;
-
+    private TableView<CompletedTaskDTO> tblCompletedTask;
     @FXML
     private DatePicker txtDate;
 
@@ -117,6 +117,14 @@ public class DashboardController implements Initializable {
 
     @FXML
     void btnReloadOnAction(ActionEvent event) {
+
+        List<CompletedTaskDTO> taskDTOS = completedTaskService.getAllCompletedTasks();
+
+        for(CompletedTaskDTO completedTaskDTO : taskDTOS){
+            completedTaskDTOS.add(completedTaskDTO);
+        }
+
+
 
     }
 
@@ -248,6 +256,8 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         loadTasks();
+
     }
 }

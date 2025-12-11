@@ -1,10 +1,14 @@
 package service;
 
 import model.dto.CompletedTaskDTO;
+import model.dto.TaskDTO;
 import model.entity.CompletedTask;
 import repository.CompletedTaskRepository;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CompletedTaskService {
 
@@ -48,6 +52,28 @@ public class CompletedTaskService {
 
     }
 
+
+    public List<CompletedTaskDTO> getAllCompletedTasks() {
+
+        List<CompletedTaskDTO> tasks = new ArrayList<>();
+        try {
+            ResultSet rst = completedTaskRepository.getAllCompletedTasks();
+            while (rst.next()){
+                tasks.add(
+                        new CompletedTaskDTO(
+                                rst.getString("date"),
+                                rst.getString("title"),
+                                rst.getString("description")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return tasks;
+
+    }
 
 
 }

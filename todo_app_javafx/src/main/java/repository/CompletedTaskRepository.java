@@ -47,6 +47,16 @@ public class CompletedTaskRepository {
 
     }
 
+    public ResultSet getAllCompletedTasks() throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "Select * From Completed_Tasks";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        return preparedStatement.executeQuery();
+
+    }
 
 
 }
