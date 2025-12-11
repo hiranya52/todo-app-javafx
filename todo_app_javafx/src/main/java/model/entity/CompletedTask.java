@@ -9,6 +9,7 @@ import lombok.*;
 @ToString
 public class CompletedTask {
 
+    private String id;
     private String date;
     private String title;
     private String Description;
