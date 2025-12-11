@@ -14,8 +14,7 @@ public class CompletedTaskService {
 
     CompletedTaskRepository completedTaskRepository = new CompletedTaskRepository();
 
-    private String getLastTaskID(){
-
+    private String getLastTaskID() {
         String lastTaskId;
         try {
             lastTaskId = completedTaskRepository.getLastTaskID();
@@ -24,15 +23,15 @@ public class CompletedTaskService {
         }
 
         if (lastTaskId == null) {
-            return "t1";
+            return "t01";
         }
 
         int numericPart = Integer.parseInt(lastTaskId.substring(1));
         numericPart++;
 
-        return "t" + numericPart;
-
+        return String.format("t%02d", numericPart);
     }
+
 
 
     public void addCompletedTask(CompletedTaskDTO taskDTO) {

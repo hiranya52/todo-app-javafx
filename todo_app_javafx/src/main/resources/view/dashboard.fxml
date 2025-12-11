@@ -20,9 +20,9 @@
             <Font name="Yuanti SC Regular" size="32.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="81.0" layoutY="69.0" prefHeight="6.0" prefWidth="225.0" stylesheets="@../style.css">
+      <AnchorPane layoutX="81.0" layoutY="67.0" prefHeight="59.0" prefWidth="225.0" stylesheets="@../style.css">
          <children>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="154.0" layoutY="4.0">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="154.0" layoutY="5.0">
                <image>
                   <Image url="@../img/profile.png" />
                </image>

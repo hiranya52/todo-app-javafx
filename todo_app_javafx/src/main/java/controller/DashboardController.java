@@ -176,7 +176,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void chk_3(ActionEvent event) {
-        if (chk_2.isSelected()){
+        if (chk_3.isSelected()){
 
             TaskDTO task = taskService.taskCompleted(txtField_3.getText());
 
@@ -197,7 +197,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void chk_4(ActionEvent event) {
-        if (chk_2.isSelected()){
+        if (chk_4.isSelected()){
 
             TaskDTO task = taskService.taskCompleted(txtField_4.getText());
 
@@ -218,7 +218,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void chk_5(ActionEvent event) {
-        if (chk_2.isSelected()){
+        if (chk_5.isSelected()){
 
             TaskDTO task = taskService.taskCompleted(txtField_5.getText());
 
@@ -239,7 +239,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void chk_6(ActionEvent event) {
-        if (chk_2.isSelected()){
+        if (chk_6.isSelected()){
 
             TaskDTO task = taskService.taskCompleted(txtField_6.getText());
 
