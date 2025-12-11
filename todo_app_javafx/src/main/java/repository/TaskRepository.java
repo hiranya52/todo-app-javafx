@@ -1,16 +1,12 @@
 package repository;
 
-import com.mysql.cj.protocol.Resultset;
 import db.DBConnection;
-import model.dto.TaskDTO;
 import model.entity.Task;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
 
 public class TaskRepository {
 
@@ -50,15 +46,17 @@ public class TaskRepository {
 
     }
 
-//    public void deleteCompletedTask(String title) throws SQLException {
-//
-//        Connection connection = DBConnection.getInstance().getConnection();
-//        String SQL = "DELETE FROM Tasks WHERE title = ?";
-//
-//        PreparedStatement ps = connection.prepareStatement(SQL);
-//        ps.setString(1, title);
-//
-//    }
+    public void deleteCompletedTask(String id) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "DELETE FROM tasks WHERE id = ?";
+
+        PreparedStatement ps = connection.prepareStatement(SQL);
+        ps.setString(1, id);
+
+        ps.executeUpdate();
+
+    }
 
     public ResultSet loadTasks() throws SQLException {
 

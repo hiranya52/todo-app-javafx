@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import model.dto.CompletedTaskDTO;
 import model.dto.TaskDTO;
 import model.entity.CompletedTask;
 import service.CompletedTaskService;
@@ -119,15 +120,15 @@ public class DashboardController implements Initializable {
     void chk_1(ActionEvent event) {
         if (chk_1.isSelected()){
 
-//            CompletedTask task = taskService.taskCompleted(txtField_1.getText());
+            CompletedTaskDTO task = taskService.taskCompleted(txtField_1.getText());
 
-//            System.out.println(task);
+            System.out.println(task);
 
 //            taskService.deleteCompletedTask(task.getTitle());
 
 //            completedTaskService.addCompletedTask(task);
 
-//            loadTasks();
+            loadTasks();
 
         }
     }

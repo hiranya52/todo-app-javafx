@@ -1,6 +1,7 @@
 package service;
 
 import com.mysql.cj.protocol.Resultset;
+import model.dto.CompletedTaskDTO;
 import model.dto.TaskDTO;
 import model.entity.CompletedTask;
 import model.entity.Task;
@@ -78,33 +79,42 @@ public class TaskService {
     }
 
 
-//    public CompletedTask taskCompleted(String title) {
-//
-//        try {
-//            ResultSet resultSet = (ResultSet) taskRepository.taskCompleted(title);
-//
-//            if (resultSet.next()) {
-//                return new CompletedTask(
-//                        resultSet.getString("date"),
-//                        resultSet.getString("title"),
-//                        resultSet.getString("description")
-//                );
-//            }
-//
-//            return null;
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//    }
-//
-//    public void deleteCompletedTask(String title) {
-//        try {
-//            taskRepository.deleteCompletedTask(title);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    public CompletedTaskDTO taskCompleted(String title) {
+
+        try {
+            ResultSet resultSet = (ResultSet) taskRepository.taskCompleted(title);
+
+            if (resultSet.next()) {
+
+                //-------------Call Delete Completed Task by passing the ID-------------//
+                deleteCompletedTask(resultSet.getString("id"));
+
+                return new CompletedTaskDTO(
+                        resultSet.getString("date"),
+                        resultSet.getString("title"),
+                        resultSet.getString("description")
+                );
+
+            }
+
+            return null;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void deleteCompletedTask(String id) {
+
+        System.out.println(id);
+
+        try {
+            taskRepository.deleteCompletedTask(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
