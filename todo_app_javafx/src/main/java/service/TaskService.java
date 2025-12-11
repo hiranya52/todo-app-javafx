@@ -39,10 +39,8 @@ public class TaskService {
 
     public void addTask(TaskDTO taskDTO) {
 
-        String lastID = getLastTaskID();
-
         Task task = new Task(
-                lastID,
+                getLastTaskID(),
                 taskDTO.getDate(),
                 taskDTO.getTitle(),
                 taskDTO.getDescription()
@@ -79,35 +77,27 @@ public class TaskService {
     }
 
 
-    public CompletedTaskDTO taskCompleted(String title) {
-
+    public TaskDTO taskCompleted(String title) {
         try {
-            ResultSet resultSet = (ResultSet) taskRepository.taskCompleted(title);
+            ResultSet resultSet = taskRepository.taskCompleted(title);
 
             if (resultSet.next()) {
-
-                //-------------Call Delete Completed Task by passing the ID-------------//
                 deleteCompletedTask(resultSet.getString("id"));
-
-                return new CompletedTaskDTO(
+                return new TaskDTO(
                         resultSet.getString("date"),
                         resultSet.getString("title"),
                         resultSet.getString("description")
                 );
-
             }
-
             return null;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
-    public void deleteCompletedTask(String id) {
 
-        System.out.println(id);
+    public void deleteCompletedTask(String id) {
 
         try {
             taskRepository.deleteCompletedTask(id);

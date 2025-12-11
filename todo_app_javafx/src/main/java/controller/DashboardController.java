@@ -91,7 +91,7 @@ public class DashboardController implements Initializable {
         }
 
         for (int i = 0; i < tasks.size() && i < fields.length; i++) {
-            fields[i].setText(tasks.get(i).getDescription());
+            fields[i].setText(tasks.get(i).getTitle());
         }
 
     }
@@ -120,13 +120,15 @@ public class DashboardController implements Initializable {
     void chk_1(ActionEvent event) {
         if (chk_1.isSelected()){
 
-            CompletedTaskDTO task = taskService.taskCompleted(txtField_1.getText());
+            TaskDTO task = taskService.taskCompleted(txtField_1.getText());
 
-            System.out.println(task);
+            CompletedTaskDTO completedTaskDTO = new CompletedTaskDTO(
+                    task.getDate(),
+                    task.getTitle(),
+                    task.getDescription()
+            );
 
-//            taskService.deleteCompletedTask(task.getTitle());
-
-//            completedTaskService.addCompletedTask(task);
+            completedTaskService.addCompletedTask(completedTaskDTO);
 
             loadTasks();
 
