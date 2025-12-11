@@ -139,29 +139,95 @@ public class DashboardController implements Initializable {
     void chk_2(ActionEvent event) {
         if (chk_2.isSelected()){
 
+            TaskDTO task = taskService.taskCompleted(txtField_2.getText());
 
+            CompletedTaskDTO completedTaskDTO = new CompletedTaskDTO(
+                    task.getDate(),
+                    task.getTitle(),
+                    task.getDescription()
+            );
+
+            completedTaskService.addCompletedTask(completedTaskDTO);
+
+            loadTasks();
 
         }
     }
 
     @FXML
     void chk_3(ActionEvent event) {
+        if (chk_2.isSelected()){
 
+            TaskDTO task = taskService.taskCompleted(txtField_3.getText());
+
+            CompletedTaskDTO completedTaskDTO = new CompletedTaskDTO(
+                    task.getDate(),
+                    task.getTitle(),
+                    task.getDescription()
+            );
+
+            completedTaskService.addCompletedTask(completedTaskDTO);
+
+            loadTasks();
+
+        }
     }
 
     @FXML
     void chk_4(ActionEvent event) {
+        if (chk_2.isSelected()){
 
+            TaskDTO task = taskService.taskCompleted(txtField_4.getText());
+
+            CompletedTaskDTO completedTaskDTO = new CompletedTaskDTO(
+                    task.getDate(),
+                    task.getTitle(),
+                    task.getDescription()
+            );
+
+            completedTaskService.addCompletedTask(completedTaskDTO);
+
+            loadTasks();
+
+        }
     }
 
     @FXML
     void chk_5(ActionEvent event) {
+        if (chk_2.isSelected()){
 
+            TaskDTO task = taskService.taskCompleted(txtField_5.getText());
+
+            CompletedTaskDTO completedTaskDTO = new CompletedTaskDTO(
+                    task.getDate(),
+                    task.getTitle(),
+                    task.getDescription()
+            );
+
+            completedTaskService.addCompletedTask(completedTaskDTO);
+
+            loadTasks();
+
+        }
     }
 
     @FXML
     void chk_6(ActionEvent event) {
+        if (chk_2.isSelected()){
 
+            TaskDTO task = taskService.taskCompleted(txtField_6.getText());
+
+            CompletedTaskDTO completedTaskDTO = new CompletedTaskDTO(
+                    task.getDate(),
+                    task.getTitle(),
+                    task.getDescription()
+            );
+
+            completedTaskService.addCompletedTask(completedTaskDTO);
+
+            loadTasks();
+
+        }
     }
 
     @Override
