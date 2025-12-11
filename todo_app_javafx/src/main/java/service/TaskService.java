@@ -82,4 +82,12 @@ public class TaskService {
 
     }
 
+    public void deleteCompletedTask(String title) {
+        try {
+            taskRepository.deleteCompletedTask(title);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

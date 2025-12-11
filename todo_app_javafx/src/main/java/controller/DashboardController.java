@@ -77,26 +77,43 @@ public class DashboardController {
     @FXML
     private JFXTextField txtTitle;
 
-    private void loadTasks(){
-        List<TaskDTO> tasks =  taskService.loadTasks();
+//    private void loadTasks(){
+//        List<TaskDTO> tasks =  taskService.loadTasks();
+//
+//        TextField[] fields = { txtField_1,txtField_2,txtField_3,txtField_4,txtField_5,txtField_6 };
+//
+//        for (int i=0; i<6; i++){
+//            txtField_1.clear();
+//            txtField_2.clear();
+//            txtField_3.clear();
+//            txtField_4.clear();
+//            txtField_5.clear();
+//            txtField_6.clear();
+//        }
+//
+//        for (int i=0; i<6; i++){
+//            if(tasks.get(i) != null){
+//                fields[i].setText(tasks.get(i).getTitle());
+//            }
+//        }
+//    }
 
-        TextField[] fields = { txtField_1,txtField_2,txtField_3,txtField_4,txtField_5,txtField_6 };
+    private void loadTasks() {
+        List<TaskDTO> tasks = taskService.loadTasks();
 
-        for (int i=0; i<6; i++){
-            txtField_1.clear();
-            txtField_2.clear();
-            txtField_3.clear();
-            txtField_4.clear();
-            txtField_5.clear();
-            txtField_6.clear();
+        TextField[] fields = { txtField_1, txtField_2, txtField_3, txtField_4, txtField_5, txtField_6 };
+        CheckBox[] checkboxes = { chk_1, chk_2, chk_3, chk_4, chk_5, chk_6 };
+
+        for (int i = 0; i < fields.length; i++) {
+            fields[i].clear();
+            checkboxes[i].setSelected(false);
         }
-
-        for (int i=0; i<6; i++){
-            if(tasks.get(i) != null){
-                fields[i].setText(tasks.get(i).getTitle());
-            }
+        for (int i = 0; i < tasks.size() && i < fields.length; i++) {
+            fields[i].setText(tasks.get(i).getDescription());
+//            checkboxes[i].setSelected(tasks.get(i).isCompleted());
         }
     }
+
 
     @FXML
     void btnAddTaskOnAction(ActionEvent event) {
@@ -123,9 +140,13 @@ public class DashboardController {
 
             CompletedTask task = taskService.taskCompleted(txtField_1.getText());
 
-            completedTaskService.addCompletedTask(task);
+            System.out.println(task);
 
-            loadTasks();
+//            taskService.deleteCompletedTask(task.getTitle());
+
+//            completedTaskService.addCompletedTask(task);
+
+//            loadTasks();
 
         }
     }
@@ -134,11 +155,7 @@ public class DashboardController {
     void chk_2(ActionEvent event) {
         if (chk_2.isSelected()){
 
-            CompletedTask task = taskService.taskCompleted(txtField_2.getText());
 
-            completedTaskService.addCompletedTask(task);
-
-            loadTasks();
 
         }
     }

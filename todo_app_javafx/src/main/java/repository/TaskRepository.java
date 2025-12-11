@@ -29,9 +29,15 @@ public class TaskRepository {
 
     }
 
-    public void deleteCompletedTask(){
-
-    }
+//    public void deleteCompletedTask(String title) throws SQLException {
+//
+//        Connection connection = DBConnection.getInstance().getConnection();
+//        String SQL = "DELETE FROM Tasks WHERE title = ?";
+//
+//        PreparedStatement ps = connection.prepareStatement(SQL);
+//        ps.setString(1, title);
+//
+//    }
 
     public ResultSet loadTasks() throws SQLException {
 
