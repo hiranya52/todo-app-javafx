@@ -118,6 +118,8 @@ public class DashboardController implements Initializable {
     @FXML
     void btnReloadOnAction(ActionEvent event) {
 
+        tblCompletedTask.getItems().clear();
+
         List<CompletedTaskDTO> taskDTOS = completedTaskService.getAllCompletedTasks();
 
         for(CompletedTaskDTO completedTaskDTO : taskDTOS){
