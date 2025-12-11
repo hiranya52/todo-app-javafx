@@ -109,6 +109,10 @@ public class DashboardController implements Initializable {
 
         loadTasks();
 
+        txtDate.setValue(null);
+        txtTitle.clear();
+        txtDescription.clear();
+
     }
 
     @FXML
@@ -132,6 +136,8 @@ public class DashboardController implements Initializable {
 
             loadTasks();
 
+            chk_1.setSelected(false);
+
         }
     }
 
@@ -150,6 +156,8 @@ public class DashboardController implements Initializable {
             completedTaskService.addCompletedTask(completedTaskDTO);
 
             loadTasks();
+
+            chk_2.setSelected(false);
 
         }
     }
@@ -170,6 +178,8 @@ public class DashboardController implements Initializable {
 
             loadTasks();
 
+            chk_3.setSelected(false);
+
         }
     }
 
@@ -188,6 +198,8 @@ public class DashboardController implements Initializable {
             completedTaskService.addCompletedTask(completedTaskDTO);
 
             loadTasks();
+
+            chk_4.setSelected(false);
 
         }
     }
@@ -208,6 +220,8 @@ public class DashboardController implements Initializable {
 
             loadTasks();
 
+            chk_5.setSelected(false);
+
         }
     }
 
@@ -226,6 +240,8 @@ public class DashboardController implements Initializable {
             completedTaskService.addCompletedTask(completedTaskDTO);
 
             loadTasks();
+
+            chk_6.setSelected(false);
 
         }
     }
