@@ -124,7 +124,11 @@ public class DashboardController implements Initializable {
             completedTaskDTOS.add(completedTaskDTO);
         }
 
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 
+        tblCompletedTask.setItems(completedTaskDTOS);
 
     }
 
