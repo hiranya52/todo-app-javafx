@@ -16,9 +16,32 @@ public class TaskService {
 
     TaskRepository taskRepository = new TaskRepository();
 
+
+    private String getLastTaskID() {
+
+        String lastTaskId;
+        try {
+            lastTaskId = taskRepository.getLastTaskID();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (lastTaskId == null) {
+            return "t1";
+        }
+
+        int numericPart = Integer.parseInt(lastTaskId.substring(1));
+        numericPart++;
+
+        return "t" + numericPart;
+    }
+
     public void addTask(TaskDTO taskDTO) {
 
+        String lastID = getLastTaskID();
+
         Task task = new Task(
+                lastID,
                 taskDTO.getDate(),
                 taskDTO.getTitle(),
                 taskDTO.getDescription()
@@ -35,13 +58,9 @@ public class TaskService {
     public List<TaskDTO> loadTasks() {
 
         List<TaskDTO> taskDTOS = new ArrayList<>();
-
         try {
-
             ResultSet rst = taskRepository.loadTasks();
-
             while (rst.next()){
-
                 taskDTOS.add(
                         new TaskDTO(
                                 rst.getString("date"),
@@ -49,9 +68,7 @@ public class TaskService {
                                 rst.getString("description")
                         )
                 );
-
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -61,33 +78,33 @@ public class TaskService {
     }
 
 
-    public CompletedTask taskCompleted(String title) {
-
-        try {
-            ResultSet resultSet = (ResultSet) taskRepository.taskCompleted(title);
-
-            if (resultSet.next()) {
-                return new CompletedTask(
-                        resultSet.getString("date"),
-                        resultSet.getString("title"),
-                        resultSet.getString("description")
-                );
-            }
-
-            return null;
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    public void deleteCompletedTask(String title) {
-        try {
-            taskRepository.deleteCompletedTask(title);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public CompletedTask taskCompleted(String title) {
+//
+//        try {
+//            ResultSet resultSet = (ResultSet) taskRepository.taskCompleted(title);
+//
+//            if (resultSet.next()) {
+//                return new CompletedTask(
+//                        resultSet.getString("date"),
+//                        resultSet.getString("title"),
+//                        resultSet.getString("description")
+//                );
+//            }
+//
+//            return null;
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//    }
+//
+//    public void deleteCompletedTask(String title) {
+//        try {
+//            taskRepository.deleteCompletedTask(title);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
 }

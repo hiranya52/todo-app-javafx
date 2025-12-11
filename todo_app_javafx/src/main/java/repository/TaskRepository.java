@@ -14,16 +14,37 @@ import java.util.List;
 
 public class TaskRepository {
 
+
+    public String getLastTaskID() throws SQLException {
+
+        String lastTaskId = null;
+
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        String SQL = "SELECT id FROM tasks ORDER BY id DESC LIMIT 1";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        if (resultSet.next()) {
+            lastTaskId = resultSet.getString(1);
+        }
+
+        return lastTaskId;
+
+    }
+
     public void addTask(Task task) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
-        String SQL = "INSERT INTO tasks (date, title, description) VALUES (?, ?, ?)";
+        String SQL = "INSERT INTO tasks VALUES (?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-        preparedStatement.setObject(1,task.getDate());
-        preparedStatement.setObject(2,task.getTitle());
-        preparedStatement.setObject(3,task.getDescription());
+        preparedStatement.setObject(1,task.getId());
+        preparedStatement.setObject(2,task.getDate());
+        preparedStatement.setObject(3,task.getTitle());
+        preparedStatement.setObject(4,task.getDescription());
 
         preparedStatement.executeUpdate();
 

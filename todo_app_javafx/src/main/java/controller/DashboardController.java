@@ -3,15 +3,18 @@ package controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import model.dto.TaskDTO;
 import model.entity.CompletedTask;
 import service.CompletedTaskService;
 import service.TaskService;
 
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class DashboardController {
+public class DashboardController implements Initializable {
 
     TaskService taskService = new TaskService();
 
@@ -77,41 +80,19 @@ public class DashboardController {
     @FXML
     private JFXTextField txtTitle;
 
-//    private void loadTasks(){
-//        List<TaskDTO> tasks =  taskService.loadTasks();
-//
-//        TextField[] fields = { txtField_1,txtField_2,txtField_3,txtField_4,txtField_5,txtField_6 };
-//
-//        for (int i=0; i<6; i++){
-//            txtField_1.clear();
-//            txtField_2.clear();
-//            txtField_3.clear();
-//            txtField_4.clear();
-//            txtField_5.clear();
-//            txtField_6.clear();
-//        }
-//
-//        for (int i=0; i<6; i++){
-//            if(tasks.get(i) != null){
-//                fields[i].setText(tasks.get(i).getTitle());
-//            }
-//        }
-//    }
+    private void loadTasks(){
+        List<TaskDTO> tasks =  taskService.loadTasks();
 
-    private void loadTasks() {
-        List<TaskDTO> tasks = taskService.loadTasks();
+        TextField[] fields = { txtField_1,txtField_2,txtField_3,txtField_4,txtField_5,txtField_6 };
 
-        TextField[] fields = { txtField_1, txtField_2, txtField_3, txtField_4, txtField_5, txtField_6 };
-        CheckBox[] checkboxes = { chk_1, chk_2, chk_3, chk_4, chk_5, chk_6 };
-
-        for (int i = 0; i < fields.length; i++) {
+        for (int i=0; i<6; i++){
             fields[i].clear();
-            checkboxes[i].setSelected(false);
         }
+
         for (int i = 0; i < tasks.size() && i < fields.length; i++) {
             fields[i].setText(tasks.get(i).getDescription());
-//            checkboxes[i].setSelected(tasks.get(i).isCompleted());
         }
+
     }
 
 
@@ -138,9 +119,9 @@ public class DashboardController {
     void chk_1(ActionEvent event) {
         if (chk_1.isSelected()){
 
-            CompletedTask task = taskService.taskCompleted(txtField_1.getText());
+//            CompletedTask task = taskService.taskCompleted(txtField_1.getText());
 
-            System.out.println(task);
+//            System.out.println(task);
 
 //            taskService.deleteCompletedTask(task.getTitle());
 
@@ -180,4 +161,8 @@ public class DashboardController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTasks();
+    }
 }
